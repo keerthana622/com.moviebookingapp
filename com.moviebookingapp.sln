@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.moviebookingapp.usermicroservice", "com.moviebookingapp.usermicroservice\com.moviebookingapp.usermicroservice.csproj", "{1608D438-E0B7-4507-BA47-09EE7E681847}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.moviebookingapp.moviemicroservice", "com.moviebookingapp.moviemicroservice\com.moviebookingapp.moviemicroservice.csproj", "{F24B3132-E69D-407C-8DE6-9AA3629C7AA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.moviebookingapp.ticketmicroservice", "com.moviebookingapp.ticketmicroservice\com.moviebookingapp.ticketmicroservice.csproj", "{D7B6E5CB-DD23-48D7-880C-63CAEDC15857}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1608D438-E0B7-4507-BA47-09EE7E681847}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1608D438-E0B7-4507-BA47-09EE7E681847}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1608D438-E0B7-4507-BA47-09EE7E681847}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1608D438-E0B7-4507-BA47-09EE7E681847}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F24B3132-E69D-407C-8DE6-9AA3629C7AA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F24B3132-E69D-407C-8DE6-9AA3629C7AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F24B3132-E69D-407C-8DE6-9AA3629C7AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F24B3132-E69D-407C-8DE6-9AA3629C7AA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7B6E5CB-DD23-48D7-880C-63CAEDC15857}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7B6E5CB-DD23-48D7-880C-63CAEDC15857}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7B6E5CB-DD23-48D7-880C-63CAEDC15857}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7B6E5CB-DD23-48D7-880C-63CAEDC15857}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7E7EC3D3-5672-4126-836A-CF46580EC821}
+	EndGlobalSection
+EndGlobal
