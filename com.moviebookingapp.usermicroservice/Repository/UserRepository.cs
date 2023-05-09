@@ -55,12 +55,20 @@ namespace com.moviebookingapp.usermicroservice.Repository
         {
             await _userCollection.InsertOneAsync(users);
         }
-
+        /// <summary>
+        /// validate users for forgot password
+        /// </summary>
+        /// <param name="userEmail"></param>
+        /// <returns></returns>
         public async Task<Users> ForgotPassword(string userEmail)
         {
             return await _userCollection.Find(x=>x.Email== userEmail).FirstOrDefaultAsync();
         }
-
+        /// <summary>
+        /// update reset token in db
+        /// </summary>
+        /// <param name="users"></param>
+        /// <returns></returns>
         public async Task UpdateResetToken(Users users)
         {
             var emailFilter = Builders<Users>.Filter
@@ -71,11 +79,21 @@ namespace com.moviebookingapp.usermicroservice.Repository
             await _userCollection.UpdateOneAsync(emailFilter, updateResetToken);
         }
 
+        /// <summary>
+        /// Validate reset token against db
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns></returns>
         public async Task<Users> ValidateResetToken(string token)
         {
             return await _userCollection.Find(u=>u.ResetToken==token).FirstOrDefaultAsync();
         }
 
+        /// <summary>
+        /// Reset users password
+        /// </summary>
+        /// <param name="users"></param>
+        /// <returns></returns>
         public async Task UpdatePassword(Users users)
         {
             var emailFilter = Builders<Users>.Filter

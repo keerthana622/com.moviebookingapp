@@ -116,6 +116,11 @@ namespace com.moviebookingapp.usermicroservice.Controllers
             return Ok(new { message = "Password reset successful, you can now login" });
         }
 
+        /// <summary>
+        /// GenerateToken for logedinUser
+        /// </summary>
+        /// <param name="authClaims"></param>
+        /// <returns></returns>
         private JwtSecurityToken GenerateAccessToken(List<Claim> authClaims)
         {
             var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Key"]));
@@ -131,6 +136,10 @@ namespace com.moviebookingapp.usermicroservice.Controllers
             return token;
         }
 
+        /// <summary>
+        /// Generate Reset Token
+        /// </summary>
+        /// <returns></returns>
         private string generateResetToken()
         {
             // token is a cryptographically strong random sequence of values
@@ -139,23 +148,5 @@ namespace com.moviebookingapp.usermicroservice.Controllers
             return token;
         }
 
-        // PUT api/<UserController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<UserController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
-
-        // GET api/<UserController>/5 
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
     }
 }
