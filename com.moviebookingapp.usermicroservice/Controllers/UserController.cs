@@ -20,12 +20,12 @@ namespace com.moviebookingapp.usermicroservice.Controllers
     {
         private readonly IUserRepository _iuserRepository;
         private readonly IConfiguration _configuration;
-        private readonly IEmailService _emailService;
-        public UserController(IUserRepository iuserRepository, IConfiguration configuration, IEmailService emailService)
+
+        public UserController(IUserRepository iuserRepository, IConfiguration configuration)
         {
             _iuserRepository = iuserRepository;
             _configuration = configuration;
-            _emailService = emailService;
+
         }
 
         // Login 
@@ -79,7 +79,7 @@ namespace com.moviebookingapp.usermicroservice.Controllers
 
         //Forgot password
         [HttpGet]
-        [Route("/api/v1.0/moviebooking/{username}/forgot")]
+        [Route("/api/v1.0/moviebooking/forgot-password")]
         public async Task<IActionResult> Get([FromQuery] ForgotPasswordRequest forgotPasswordModel)
         {
             var user = await _iuserRepository.ForgotPassword(forgotPasswordModel.Email);
@@ -92,15 +92,29 @@ namespace com.moviebookingapp.usermicroservice.Controllers
             user.ResetToken = generateResetToken();
             user.ResetTokenExpires = DateTime.UtcNow.AddDays(1);
 
-            await _iuserRepository.UpdatePassword(user);
+            await _iuserRepository.UpdateResetToken(user);
 
-            // send email
-            sendPasswordResetEmail(user, Request.Headers["origin"]);
+
 
             return Ok(new { message = "Please check your email for password reset instructions" });
         }
 
-
+        // reset user password
+        [Route("/api/v1.0/moviebooking/reset-passowrd")]
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] ResetPasswordRequest resetPassword)
+        {
+            var user = await _iuserRepository.ValidateResetToken(resetPassword.Token);
+            if (user == null)
+            {
+                return NotFound("Invalid Token");
+            }
+            user.Password = BCrypt.Net.BCrypt.HashPassword(resetPassword.NewPassword);
+            user.ResetToken = null;
+            user.ResetTokenExpires = null;
+            await _iuserRepository.UpdatePassword(user);
+            return Ok(new { message = "Password reset successful, you can now login" });
+        }
 
         private JwtSecurityToken GenerateAccessToken(List<Claim> authClaims)
         {
@@ -117,37 +131,13 @@ namespace com.moviebookingapp.usermicroservice.Controllers
             return token;
         }
 
-        private  string generateResetToken()
+        private string generateResetToken()
         {
             // token is a cryptographically strong random sequence of values
             var token = Convert.ToHexString(RandomNumberGenerator.GetBytes(64));
 
             return token;
         }
-
-        private void sendPasswordResetEmail(Users user, string origin)
-        {
-            string message;
-            if (!string.IsNullOrEmpty(origin))
-            {
-                var resetUrl = $"{origin}/account/reset-password?token={user.ResetToken}";
-                message = $@"<p>Please click the below link to reset your password, the link will be valid for 1 day:</p>
-                            <p><a href=""{resetUrl}"">{resetUrl}</a></p>";
-            }
-            else
-            {
-                message = $@"<p>Please use the below token to reset your password with the <code>/accounts/reset-password</code> api route:</p>
-                            <p><code>{user.ResetToken}</code></p>";
-            }
-
-            _emailService.Send(
-                to: user.Email,
-                subject: "Sign-up Verification API - Reset Password",
-                html: $@"<h4>Reset Password Email</h4>
-                        {message}"
-            );
-        }
-
 
         // PUT api/<UserController>/5
         [HttpPut("{id}")]

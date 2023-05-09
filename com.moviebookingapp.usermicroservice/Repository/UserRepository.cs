@@ -61,7 +61,7 @@ namespace com.moviebookingapp.usermicroservice.Repository
             return await _userCollection.Find(x=>x.Email== userEmail).FirstOrDefaultAsync();
         }
 
-        public async Task UpdatePassword(Users users)
+        public async Task UpdateResetToken(Users users)
         {
             var emailFilter = Builders<Users>.Filter
                 .Eq(e => e.Email, users.Email);
@@ -70,5 +70,23 @@ namespace com.moviebookingapp.usermicroservice.Repository
                 .Set(u=>u.ResetTokenExpires,users.ResetTokenExpires);
             await _userCollection.UpdateOneAsync(emailFilter, updateResetToken);
         }
+
+        public async Task<Users> ValidateResetToken(string token)
+        {
+            return await _userCollection.Find(u=>u.ResetToken==token).FirstOrDefaultAsync();
+        }
+
+        public async Task UpdatePassword(Users users)
+        {
+            var emailFilter = Builders<Users>.Filter
+              .Eq(e => e.Email, users.Email);
+            var updatePassword = Builders<Users>.Update
+                .Set(u => u.Password, users.Password)
+                .Set(u => u.ResetToken, users.ResetToken)
+                .Set(u => u.ResetTokenExpires, users.ResetTokenExpires);
+            await _userCollection.UpdateOneAsync(emailFilter, updatePassword);
+        }
+
+        
     }
 }
