@@ -1,0 +1,19 @@
+﻿using com.moviebookingapp.moviemicroservice.Collection;
+using com.moviebookingapp.moviemicroservice.Models;
+
+namespace com.moviebookingapp.moviemicroservice.Repository
+{
+    public interface IMovieRepository
+    {
+        Task<List<Movie>> GetAllMovieAsync();
+        Task<List<Movie>> GetByMovienameAsync(string moviename);
+        Task<Movie> GetByMovieandTheatrenameAsync(string MovieName, string TheatreName);
+        Task BookTicket(Ticket ticket);
+        Task<Ticket> GetBookedTicketDetails(string MovieName, string TheatreName);
+        Task UpdateMovieDetails(Movie movie);
+        Task DeleteMovieById(string id);
+
+
+
+    }
+}
