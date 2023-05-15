@@ -30,9 +30,9 @@ namespace com.moviebookingapp.usermicroservice.Collection
         [BsonElement("resetTokenExpires")]
         public DateTime? ResetTokenExpires { get; set; }
         [BsonElement("createdBy")]
-        public string CreatedBy { get; set; }
+        public string? CreatedBy { get; set; }
         [BsonElement("createdOn")]
-        public DateTime CreatedOn { get; set; }
+        public DateTime? CreatedOn { get; set; }
         [BsonElement("modifiedBy")]
         public string? ModifiedBy { get; set; }
         [BsonElement("modifiedOn")]

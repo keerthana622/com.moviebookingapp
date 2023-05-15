@@ -1,5 +1,4 @@
-﻿using com.moviebookingapp.usermicroservice.Collection;
-using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson.Serialization.Attributes;
 using System.ComponentModel.DataAnnotations;
 
 namespace com.moviebookingapp.moviemicroservice.Collection

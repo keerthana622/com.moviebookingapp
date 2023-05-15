@@ -1,6 +1,5 @@
 ﻿using com.moviebookingapp.moviemicroservice.Collection;
 using com.moviebookingapp.moviemicroservice.Models;
-using com.moviebookingapp.usermicroservice.Collection;
 using MongoDB.Driver;
 
 namespace com.moviebookingapp.moviemicroservice.Repository
