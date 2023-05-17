@@ -13,9 +13,11 @@ namespace com.moviebookingapp.moviemicroservice.Controllers
     public class MovieController : ControllerBase
     {
         private readonly IMovieRepository _imovieRepository;
-        public MovieController(IMovieRepository movieRepository)
+        private readonly ILogger<MovieController> _logger;
+        public MovieController(IMovieRepository movieRepository, ILogger<MovieController> logger)
         {
             _imovieRepository = movieRepository;
+            _logger = logger;
         }
 
         //Get all movies
@@ -23,7 +25,12 @@ namespace com.moviebookingapp.moviemicroservice.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
+            _logger.LogInformation("Get all movies available");
             var movies = await _imovieRepository.GetAllMovieAsync();
+            if(movies.Count() == 0)
+            {
+                return NoContent();
+            }
             return Ok(movies);
         }
 
@@ -33,7 +40,7 @@ namespace com.moviebookingapp.moviemicroservice.Controllers
         public async Task<IActionResult> Get([FromQuery]string moviename)
         {
             var movie = await _imovieRepository.GetByMovienameAsync(moviename);
-            if (movie == null)
+            if (movie.Count == 0)
             {
                 return NotFound();
             }
@@ -46,11 +53,17 @@ namespace com.moviebookingapp.moviemicroservice.Controllers
         [HttpPost, Authorize(Roles = "Admin,User")]
         public async Task<IActionResult> Post([FromBody] Ticket ticket)
         {
+            _logger.LogInformation($"{ticket} is being booked");
+            if (ticket == null)
+            {
+                return BadRequest();
+            }
             var movie = _imovieRepository.GetByMovienameAsync(ticket.MovieName);
             if (movie == null)
             {
                 return NotFound("No movie availabe with this name");
             }
+           
             await _imovieRepository.BookTicket(ticket);
             return CreatedAtAction(nameof(Get), new { id = ticket.Id }, ticket);
 

@@ -20,12 +20,13 @@ namespace com.moviebookingapp.usermicroservice.Controllers
     {
         private readonly IUserRepository _iuserRepository;
         private readonly IConfiguration _configuration;
+        private readonly ILogger<UserController> _logger;
 
-        public UserController(IUserRepository iuserRepository, IConfiguration configuration)
+        public UserController(IUserRepository iuserRepository, IConfiguration configuration, ILogger<UserController> logger)
         {
             _iuserRepository = iuserRepository;
             _configuration = configuration;
-
+            _logger = logger;
         }
 
         // Login 
@@ -33,6 +34,7 @@ namespace com.moviebookingapp.usermicroservice.Controllers
         [Route("/api/v1.0/moviebooking/login")]
         public async Task<IActionResult> Get([FromQuery] LoginModel loginModel)
         {
+            _logger.LogInformation("User begins to login");
             var logedinUser = await _iuserRepository.ValidateLoginUser(loginModel.Email, loginModel.LoginId);
             if (logedinUser == null)
             {
@@ -67,6 +69,11 @@ namespace com.moviebookingapp.usermicroservice.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Users users)
         {
+            _logger.LogInformation("Seri Log is Working");
+            if (users==null)
+            {
+                return BadRequest("Users data cannot be null");
+            }
             var newUser = await _iuserRepository.ValidateUser(users.Email, users.LoginId);
             if (newUser != null)
             {
@@ -102,7 +109,7 @@ namespace com.moviebookingapp.usermicroservice.Controllers
         // reset user password
         [Route("/api/v1.0/moviebooking/reset-passowrd")]
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] ResetPasswordRequest resetPassword)
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequest resetPassword)
         {
             var user = await _iuserRepository.ValidateResetToken(resetPassword.Token);
             if (user == null)
