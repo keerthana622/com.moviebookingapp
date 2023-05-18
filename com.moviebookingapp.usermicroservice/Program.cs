@@ -21,7 +21,7 @@ var logger = new LoggerConfiguration()
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(logger);
 
-
+//app.MapPost
 // Add services to the container.
 
 builder.Services.AddControllers();
