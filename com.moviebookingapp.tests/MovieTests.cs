@@ -62,7 +62,7 @@ namespace com.moviebookingapp.tests
         [Test]
         public async Task getMovieByName_HttpRsponse200_whenDataExists()
         {
-            //Arrange - Opsætning => variable init
+            //Arrange  => variable init
             var moviename = "Paathan";
             List<Movie> movieList = new List<Movie>();
             movieList.Add(new Movie { MovieName = "Paathan", TheatreName = "Inox", NoOfSeatsAlloted = 200 });
