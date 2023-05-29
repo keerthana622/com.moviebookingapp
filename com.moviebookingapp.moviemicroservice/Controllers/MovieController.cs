@@ -22,7 +22,7 @@ namespace com.moviebookingapp.moviemicroservice.Controllers
 
         //Get all movies
         [Route("/api/v1.0/moviebooking/all")]
-        [HttpGet]
+        [HttpGet, Authorize(Roles = "Admin,User")]
         public async Task<IActionResult> Get()
         {
             _logger.LogInformation("Get all movies available");
@@ -36,7 +36,7 @@ namespace com.moviebookingapp.moviemicroservice.Controllers
 
         // Search By Moviename
         [Route("/api/v1.0/moviebooking/movies/search/moviename")]
-        [HttpGet]
+        [HttpGet, Authorize(Roles = "Admin,User")]
         public async Task<IActionResult> Get([FromQuery]string moviename)
         {
             var movie = await _imovieRepository.GetByMovienameAsync(moviename);

@@ -1,14 +1,17 @@
 ﻿using com.moviebookingapp.usermicroservice.Collection;
 using com.moviebookingapp.usermicroservice.Models;
 using com.moviebookingapp.usermicroservice.Repository;
+using MailKit.Security;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using NETCore.MailKit.Core;
+using MimeKit.Text;
+using MimeKit;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using com.moviebookingapp.usermicroservice.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,12 +24,18 @@ namespace com.moviebookingapp.usermicroservice.Controllers
         private readonly IUserRepository _iuserRepository;
         private readonly IConfiguration _configuration;
         private readonly ILogger<UserController> _logger;
+        private readonly IEmailService _emailService;
 
-        public UserController(IUserRepository iuserRepository, IConfiguration configuration, ILogger<UserController> logger)
+
+        public UserController(IUserRepository iuserRepository, 
+            IConfiguration configuration,
+            ILogger<UserController> logger,
+            IEmailService emailService)
         {
             _iuserRepository = iuserRepository;
             _configuration = configuration;
             _logger = logger;
+            _emailService = emailService;
         }
 
         // Login 
@@ -58,7 +67,9 @@ namespace com.moviebookingapp.usermicroservice.Controllers
             {
                 token = new JwtSecurityTokenHandler().WriteToken(token),
                 expiration = token.ValidTo,
-                user_id = logedinUser.Id
+                user_id = logedinUser.Id,
+                user_name=logedinUser.UserName,
+                role=logedinUser.Role
             });
         }
 
@@ -101,6 +112,7 @@ namespace com.moviebookingapp.usermicroservice.Controllers
 
             await _iuserRepository.UpdateResetToken(user);
 
+            sendPasswordResetEmail(user);
 
 
             return Ok(new { message = "Please check your email for password reset instructions" });
@@ -155,5 +167,21 @@ namespace com.moviebookingapp.usermicroservice.Controllers
             return token;
         }
 
+        private void sendPasswordResetEmail(Users user)
+        {
+            string message;
+            
+                message = $@"<p>Please use the below token to reset your password with the <code>/accounts/reset-password</code> api route:</p>
+                            <p><code>{user.ResetToken}</code></p>";
+
+            _emailService.Send(
+                to: user.Email,
+                subject: "Sign-up Verification API - Reset Password",
+                html: $@"<h4>Reset Password Email</h4>
+                        {message}"
+            );
+        }
+
+       
     }
 }

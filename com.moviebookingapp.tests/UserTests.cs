@@ -11,6 +11,7 @@ using com.moviebookingapp.usermicroservice.Models;
 using com.moviebookingapp.usermicroservice.Collection;
 using Amazon.Runtime.Internal.Util;
 using Microsoft.Extensions.Logging;
+using com.moviebookingapp.usermicroservice.Services;
 
 namespace com.moviebookingapp.tests
 {
@@ -20,11 +21,13 @@ namespace com.moviebookingapp.tests
         Mock<IUserRepository> UserMock = new Mock<IUserRepository>();
         Mock<IConfiguration> userConfig = new Mock<IConfiguration>();
         Mock<ILogger<UserController>> userlog= new Mock<ILogger<UserController>>();
+        Mock<IEmailService> emailmock = new Mock<IEmailService>();
         UserController usercontroller;
         [SetUp]
         public void SetUp()
         {
-            usercontroller = new UserController(UserMock.Object,userConfig.Object,userlog.Object);
+            usercontroller = new UserController(UserMock.Object,userConfig.Object,
+                userlog.Object,emailmock.Object);
         }
 
         [Test]

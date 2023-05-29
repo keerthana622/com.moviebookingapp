@@ -1,10 +1,10 @@
 using com.moviebookingapp.usermicroservice.Models;
 using com.moviebookingapp.usermicroservice.Repository;
+using com.moviebookingapp.usermicroservice.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MongoDB.Driver;
-using NETCore.MailKit.Core;
 using Serilog;
 using System.Text;
 
@@ -83,7 +83,11 @@ builder.Services.AddSingleton<IMongoDatabase>(options =>
     var client = new MongoClient(settings.ConnectionString);
     return client.GetDatabase(settings.DatabaseName);
 });
+
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+
 builder.Services.AddSingleton<IUserRepository, UserRepository>();
+builder.Services.AddSingleton<IEmailService,EmailService>();
 
 var app = builder.Build();
 
