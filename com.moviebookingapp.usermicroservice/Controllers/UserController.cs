@@ -119,7 +119,7 @@ namespace com.moviebookingapp.usermicroservice.Controllers
         }
 
         // reset user password
-        [Route("/api/v1.0/moviebooking/reset-passowrd")]
+        [Route("/api/v1.0/moviebooking/reset-password")]
         [HttpPost]
         public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequest resetPassword)
         {
@@ -170,9 +170,9 @@ namespace com.moviebookingapp.usermicroservice.Controllers
         private void sendPasswordResetEmail(Users user)
         {
             string message;
-            
-                message = $@"<p>Please use the below token to reset your password with the <code>/accounts/reset-password</code> api route:</p>
-                            <p><code>{user.ResetToken}</code></p>";
+                var resetUrl = $"http://localhost:4200/reset/?token={user.ResetToken}";
+                message = $@"<p>Please click the below link to reset your password, the link will be valid for 1 day:</p>
+                            <p><a href=""{resetUrl}"">{resetUrl}</a></p>";
 
             _emailService.Send(
                 to: user.Email,
