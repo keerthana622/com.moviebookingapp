@@ -7,7 +7,8 @@ namespace com.moviebookingapp.moviemicroservice.Collection
         [BsonId]
         [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string? Id { get; set; }
-
+        [BsonElement("movieImage")]
+        public string MovieImage { get; set; }
         [BsonElement("movieName")]
         public string MovieName { get; set; }
 
