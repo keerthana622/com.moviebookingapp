@@ -69,6 +69,7 @@ namespace com.moviebookingapp.usermicroservice.Controllers
                 expiration = token.ValidTo,
                 user_id = logedinUser.Id,
                 user_name=logedinUser.UserName,
+                user_Email=logedinUser.Email,
                 role=logedinUser.Role
             });
         }
