@@ -1,0 +1,461 @@
+Sample data
+
+{
+  "id": "",
+  "loginId": 002,
+  "firstName": "Sadhana",
+  "lastName": "Thabgamuthu",
+  "userName": "Sadhu006",
+  "email": "sadhu@gmail.com",
+  "password": "sadhu1234",
+  "contactNumber": "8334784593",
+  "role": "User",
+  "createdBy": "User",
+  "createdOn": "2023-05-08T08:59:34.307Z",
+  "modifiedBy": "",
+  "modifiedOn": ""
+}
+
+{
+  "id": "",
+  "loginId": "005",
+  "firstName": "raj",
+  "lastName": "kumar",
+  "userName": "rajkumar",
+  "email": "raj@gmail.com",
+  "password": "raj@123",
+  "contactNumber": "6793002199",
+  "role": "User",
+  "createdBy": "User",
+  "createdOn": "2023-05-09T07:42:32.475Z",
+  "modifiedBy": "",
+  "modifiedOn": "2023-05-09T07:42:32.475Z"
+}
+
+{
+  "_id": {
+    "$oid": "6458cb1fa55e7a119597714a"
+  },
+  "loginId": "a1",
+  "firstName": "admin",
+  "lastName": "admin",
+  "userName": "admin006",
+  "email": "admin@gmail.com",
+  "password": "$2a$11$DMj/iXxpY2Mcp6MzZOt4pO2GAu4j2K6tINdxTpP7zj8xkApfFVnHG",---admin12345
+  "contactNumber": "0034398271",
+  "role": "Admin",
+  "createdBy": "Admin",
+  "createdOn": {
+    "$date": "2023-05-08T10:12:32.489Z"
+  },
+  "modifiedBy": "",
+  "modifiedOn": {
+    "$date": "2023-05-08T10:12:32.489Z"
+  }
+}
+
+
+{
+  "id": "",
+  "loginId": "003",
+  "firstName": "user1",
+  "lastName": "user1",
+  "userName": "kk0011",
+  "email": "mailtokeerthu62@gmail.com",
+  "password": "Keerthu006@",
+  "contactNumber": "9790628010",
+  "role": "User",
+  "resetToken": "",
+  "resetTokenExpires": "",
+  "createdBy": "user",
+  "createdOn": "2023-05-09T13:24:36.810Z",
+  "modifiedBy": "",
+  "modifiedOn": "2023-05-09T13:24:36.810Z"
+}
+updated password for above
+{
+  "token": "2E7F13506CB2EC515128F5BF0F030ACB3ADFF872FE2F1987D1B7F127D8E119E4FEEFF0AC760A9CC8BA0367E219A62670EB5305C12AE67B4ADBA3D5A487BB95B4",
+  "newPassword": "Keerthu0006@"
+}
+
+update the above
+{
+  "token": "791F50935E2D861758756112431F95BCFE42C13C934882F53B8275BA80C7CAB8C73FB016A7F421BC01A02019170691C55444B331610EE21F76541E1777239C6C",
+  "newPassword": "Keerthu00006@"
+}
+{"token":"D1906BBB8B9B0CD454B94CEAA942D9C3321FC26A3582AB691183D3FFDEEBA8DCEEFDE7DBD813656F2BB3799FAF264BD85A9DD80F8416426137C39CD121DBE8E7","newPassword":"Keerthu000006@"}
+
+
+
+{
+  "token": "301D9687B7E6D1C70EA8783FFB23A494876897792F2E416DDA6EDBA6E8151693E2248B4BE62B474ADBA5182141AC600194B73F7C28FFB007FC7858765317687E",
+  "newPassword": "user001@"
+} for user1
+
+
+
+{
+  "_id": {
+    "$oid": "644bc0b9390b4730f524e48f"
+  },
+  "movieName": "Paathan",
+  "numberOfSeatsAlloted": 970,
+  "theatreName": "Inox",
+  "movieImage": "https://i.pinimg.com/736x/64/8b/a3/648ba30ac2f9e5d028e0117c69619539.jpg"
+}
+
+{
+  "_id": {
+    "$oid": "644bc1d6390b4730f524e493"
+  },
+  "movieName": "Avatar",
+  "numberOfSeatsAlloted": {
+    "$numberLong": "500"
+  },
+  "theatreName": "Central",
+  "movieImage": "https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_.jpg"
+}
+
+{
+  "_id": {
+    "$oid": "645a5aedb6fd83de8ad2dade"
+  },
+  "movieName": "PS1",
+  "theatreName": "IMax",
+  "numberOfSeatsAlloted": 1500,
+  "movieImage": "https://cdn.gulte.com/wp-content/uploads/2021/07/madrastalkies_219111943_556600405752606_8152194533213875634_n.jpg"
+}
+
+{
+  "_id": {
+    "$oid": "645b3758b6fd83de8ad2dae0"
+  },
+  "movieName": "PS1",
+  "theatreName": "Inox",
+  "numberOfSeatsAlloted": 1120,
+  "movieImage": "https://cdn.gulte.com/wp-content/uploads/2021/07/madrastalkies_219111943_556600405752606_8152194533213875634_n.jpg"
+}
+
+{
+  "_id": {
+    "$oid": "64633ce7216cb692a72768ee"
+  },
+  "movieName": "Cindrella",
+  "theatreName": "KG",
+  "numberOfSeatsAlloted": 120,
+  "movieImage": "https://www.themoviedb.org/t/p/original/ryKwNlAfDXu0do6SX9h4G9Si1kG.jpg"
+}
+
+{
+  "_id": {
+    "$oid": "645b59ee8135026592aca8b9"
+  },
+  "email": "keerthu@gmail.com",
+  "movieName": "Paathan",
+  "theatreName": "Inox",
+  "numberOfTickets": 6,
+  "seatNumber": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ]
+}
+
+{
+  "_id": {
+    "$oid": "645ce7ba57009420b72e447b"
+  },
+  "email": "sadhu@gmail.com",
+  "movieName": "PS1",
+  "theatreName": "IMax",
+  "numberOfTickets": 2,
+  "seatNumber": [
+    1,
+    2
+  ]
+}
+
+{
+  "_id": {
+    "$oid": "64806a3dd1341dabcae831c1"
+  },
+  "email": "sadhu@gmail.com",
+  "movieName": "Paathan",
+  "theatreName": "Inox",
+  "numberOfTickets": 1,
+  "seatNumber": [
+    678
+  ]
+}
+
+
+{
+  "_id": {
+    "$oid": "6458c4dbf67319b956f17632"
+  },
+  "loginId": "002",
+  "firstName": "Sadhana",
+  "lastName": "Thabgamuthu",
+  "userName": "Sadhu006",
+  "email": "sadhu@gmail.com",
+  "password": "$2a$11$yuDPNoBTnP8ahJZ15I5xUevn/l5utea22fm9lh4NinrQQ4rXWrx5G",
+  "contactNumber": "8334784593",
+  "role": "User",
+  "createdBy": "User",
+  "createdOn": {
+    "$date": "2023-05-08T08:59:34.307Z"
+  },
+  "modifiedBy": "",
+  "modifiedOn": null,
+  "resetToken": "EA13CD87980DB4D29A7E95B9ECF730BC9C82223791B8E5558CD20C4EB39254A84C62910F5D96583C340F5B6CE13AFC7507A827AFAD66EC810908EFCA764DB8A2",
+  "resetTokenExpires": {
+    "$date": "2023-06-01T07:35:24.042Z"
+  }
+}
+
+{
+  "_id": {
+    "$oid": "6458ca5fa55e7a1195977149"
+  },
+  "loginId": "001",
+  "firstName": "Keerthana",
+  "lastName": "Thangamuthu",
+  "userName": "Keerthu006",
+  "email": "keerthu@gmail.com",
+  "password": "$2a$11$SR22IIQS6Y6O01MFeB6/e.Lp6tkmnfMznWcMMi2jBKp/wpHQJCkkG",
+  "contactNumber": "0034398271",
+  "role": "User",
+  "createdBy": "User",
+  "createdOn": {
+    "$date": "2023-05-08T10:09:00.672Z"
+  },
+  "modifiedBy": "",
+  "modifiedOn": {
+    "$date": "2023-05-08T10:09:00.672Z"
+  }
+}
+
+{
+  "_id": {
+    "$oid": "6458cb1fa55e7a119597714a"
+  },
+  "loginId": "a1",
+  "firstName": "admin",
+  "lastName": "admin",
+  "userName": "admin006",
+  "email": "admin@gmail.com",
+  "password": "$2a$11$DMj/iXxpY2Mcp6MzZOt4pO2GAu4j2K6tINdxTpP7zj8xkApfFVnHG",
+  "contactNumber": "0034398271",
+  "role": "Admin",
+  "createdBy": "Admin",
+  "createdOn": {
+    "$date": "2023-05-08T10:12:32.489Z"
+  },
+  "modifiedBy": "",
+  "modifiedOn": {
+    "$date": "2023-05-08T10:12:32.489Z"
+  }
+}
+
+{
+  "_id": {
+    "$oid": "6459fa5b6702b1a6248a144c"
+  },
+  "loginId": "005",
+  "firstName": "raj",
+  "lastName": "kumar",
+  "userName": "rajkumar",
+  "email": "raj@gmail.com",
+  "password": "$2a$11$4Px1tjK.5lAWRwJYNGvEMemYnexg5KBhMQwolclhQJQmc/w9kZXsC",
+  "contactNumber": "6793002199",
+  "role": "User",
+  "createdBy": "User",
+  "createdOn": {
+    "$date": "2023-05-09T07:42:32.475Z"
+  },
+  "modifiedBy": "",
+  "modifiedOn": {
+    "$date": "2023-05-09T07:42:32.475Z"
+  }
+}
+
+{
+  "_id": {
+    "$oid": "645a4db72355743678945a6e"
+  },
+  "loginId": "003",
+  "firstName": "user1",
+  "lastName": "user1",
+  "userName": "kk0011",
+  "email": "mailtokeerthu62@gmail.com",
+  "password": "$2a$11$9FHy.0nzdVra9zTyK83di.GIWBCpZJIFgmsea.W9EcXRpjvmwDO9m",
+  "contactNumber": "9790628010",
+  "role": "User",
+  "resetToken": null,
+  "resetTokenExpires": null,
+  "createdBy": "user",
+  "createdOn": {
+    "$date": "2023-05-09T13:40:43.553Z"
+  },
+  "modifiedBy": "",
+  "modifiedOn": {
+    "$date": "2023-05-09T13:40:43.553Z"
+  }
+}
+
+{
+  "_id": {
+    "$oid": "646205d6497bb8cac3c04c06"
+  },
+  "loginId": "keer0011",
+  "firstName": "Keerthana",
+  "lastName": "T",
+  "userName": "keer0011",
+  "email": "krt@gmail.com",
+  "password": "$2a$11$SDICzM3qtz74Um29pdB8NunblFHEN1/cXYNgB4ORw2BHJqyaa8bxq",
+  "contactNumber": "9780282039",
+  "role": "Admin",
+  "resetToken": null,
+  "resetTokenExpires": null,
+  "createdBy": null,
+  "createdOn": null,
+  "modifiedBy": null,
+  "modifiedOn": null
+}
+
+{
+  "_id": {
+    "$oid": "646237cb79250df5a12a8f9a"
+  },
+  "loginId": "010",
+  "firstName": "abcd",
+  "lastName": "efgh",
+  "userName": "abcd001",
+  "email": "abcd@gmail.com",
+  "password": "$2a$11$ZfN1ZsNehpV02bavmmTlpuFcY5tZs2mhmX8QZgeFXJOxrTW7drfre",
+  "contactNumber": "0902989917",
+  "role": "User",
+  "resetToken": "9B01E851279FB8EB8D3205E1E1AF88C2C136E4E9F1F0122C3B1DFD510E9D95236108AC9B115A374B49B8230113A0E36177394351DDD5F2356545B57B5293C76B",
+  "resetTokenExpires": {
+    "$date": "2023-06-01T07:12:14.065Z"
+  },
+  "createdBy": "",
+  "createdOn": {
+    "$date": "2023-05-15T13:45:16.840Z"
+  },
+  "modifiedBy": "",
+  "modifiedOn": {
+    "$date": "2023-05-15T13:45:16.840Z"
+  }
+}
+
+{
+  "_id": {
+    "$oid": "6462388179250df5a12a8f9b"
+  },
+  "loginId": "user001",
+  "firstName": "user1",
+  "lastName": "user1",
+  "userName": "user01",
+  "email": "user1@gmail.com",
+  "password": "$2a$11$mtCwSF3czoKq0SDWLN3DleyHphcq46RsbxPvizUVV9YU3FGRJ6Mdq",
+  "contactNumber": "8897879901",
+  "role": "User",
+  "resetToken": "301D9687B7E6D1C70EA8783FFB23A494876897792F2E416DDA6EDBA6E8151693E2248B4BE62B474ADBA5182141AC600194B73F7C28FFB007FC7858765317687E",
+  "resetTokenExpires": {
+    "$date": "2023-05-17T13:39:24.064Z"
+  },
+  "createdBy": null,
+  "createdOn": null,
+  "modifiedBy": null,
+  "modifiedOn": null
+}
+
+{
+  "_id": {
+    "$oid": "646471056523877c02067c0e"
+  },
+  "loginId": "020",
+  "firstName": "Kajal",
+  "lastName": "Kajal",
+  "userName": "Kajal004",
+  "email": "kajal@gmail.com",
+  "password": "$2a$11$AbeNS5rNk4JpGVBwhdtM7.Tfnqci7immk0mlHzdCKg9OxRxJNia3K",
+  "contactNumber": "8920492049",
+  "role": "User",
+  "resetToken": "",
+  "resetTokenExpires": null,
+  "createdBy": "User",
+  "createdOn": {
+    "$date": "2023-05-17T06:13:23.270Z"
+  },
+  "modifiedBy": "",
+  "modifiedOn": null
+}
+
+{
+  "_id": {
+    "$oid": "6465ea77583ce8e929bdf87f"
+  },
+  "loginId": "user002",
+  "firstName": "user2",
+  "lastName": "user2",
+  "userName": "user002",
+  "email": "user2@gmail.com",
+  "password": "$2a$11$RrW9B9BeWrzFxav/zLpX6Om60U.mn2SkSFJs5bTHXhEnpgrzChQy.",
+  "contactNumber": "8820084001",
+  "role": "User",
+  "resetToken": null,
+  "resetTokenExpires": null,
+  "createdBy": null,
+  "createdOn": null,
+  "modifiedBy": null,
+  "modifiedOn": null
+}
+
+{
+  "_id": {
+    "$oid": "6465ea77583ce8e929bdf87f"
+  },
+  "loginId": "user002",
+  "firstName": "user2",
+  "lastName": "user2",
+  "userName": "user002",
+  "email": "user2@gmail.com",
+  "password": "$2a$11$RrW9B9BeWrzFxav/zLpX6Om60U.mn2SkSFJs5bTHXhEnpgrzChQy.",
+  "contactNumber": "8820084001",
+  "role": "User",
+  "resetToken": null,
+  "resetTokenExpires": null,
+  "createdBy": null,
+  "createdOn": null,
+  "modifiedBy": null,
+  "modifiedOn": null
+}
+
+{
+  "_id": {
+    "$oid": "646c7a150b3d093613c815f2"
+  },
+  "loginId": "user03",
+  "firstName": "user3",
+  "lastName": "user3",
+  "userName": "user3",
+  "email": "user3@gmail.com",
+  "password": "$2a$11$F394M3Mxc5dviJyMMSlbZe6qmUBRtBWG62ZcWrfSoDWMI/6NqzLua",
+  "contactNumber": "08989898989",
+  "role": "User",
+  "resetToken": null,
+  "resetTokenExpires": null,
+  "createdBy": null,
+  "createdOn": null,
+  "modifiedBy": null,
+  "modifiedOn": null
+}
+
+
+
+
