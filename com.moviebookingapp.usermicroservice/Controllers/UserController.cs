@@ -66,10 +66,10 @@ namespace com.moviebookingapp.usermicroservice.Controllers
             return Ok(new
             {
                 token = new JwtSecurityTokenHandler().WriteToken(token),
-                expiration = token.ValidTo,
+                expirationDate = token.ValidTo,
                 user_id = logedinUser.Id,
-                user_name=logedinUser.UserName,
-                user_Email=logedinUser.Email,
+                username=logedinUser.UserName,
+                email=logedinUser.Email,
                 role=logedinUser.Role
             });
         }
