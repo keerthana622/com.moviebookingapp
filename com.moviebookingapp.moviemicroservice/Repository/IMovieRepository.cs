@@ -9,7 +9,7 @@ namespace com.moviebookingapp.moviemicroservice.Repository
         Task<List<Movie>> GetByMovienameAsync(string moviename);
         Task<Movie> GetByMovieandTheatrenameAsync(string MovieName, string TheatreName);
         Task BookTicket(Ticket ticket);
-        Task<Ticket> GetBookedTicketDetails(string MovieName, string TheatreName);
+        Task<List<Ticket>> GetBookedTicketDetails(string MovieName, string TheatreName);
         Task UpdateMovieDetails(Movie movie);
         Task DeleteMovieById(string id);
 

@@ -84,7 +84,11 @@ namespace com.moviebookingapp.moviemicroservice.Controllers
             {
                 return NotFound("Ticket for above is not booked");
             }
-            movieDetails.NoOfSeatsAlloted -= bookedMovieDetails.NumberOfTickets;
+            foreach(var bookedMovie in bookedMovieDetails)
+            {
+                movieDetails.NoOfSeatsAlloted -= bookedMovie.NumberOfTickets;
+            }
+            
             await _imovieRepository.UpdateMovieDetails(movieDetails);
             return Ok("Movie details updated successfully!!");
         }

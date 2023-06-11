@@ -67,9 +67,7 @@ namespace com.moviebookingapp.usermicroservice.Controllers
             {
                 token = new JwtSecurityTokenHandler().WriteToken(token),
                 expirationDate = token.ValidTo,
-                user_id = logedinUser.Id,
                 username=logedinUser.UserName,
-                email=logedinUser.Email,
                 role=logedinUser.Role
             });
         }

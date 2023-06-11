@@ -43,9 +43,9 @@ namespace com.moviebookingapp.moviemicroservice.Repository
             await _ticketCollection.InsertOneAsync(ticket);
         }
 
-        public async Task<Ticket> GetBookedTicketDetails(string MovieName, string TheatreName)
+        public async Task<List<Ticket>> GetBookedTicketDetails(string MovieName, string TheatreName)
         {
-            return await _ticketCollection.Find(t=>t.MovieName==MovieName && t.TheatreName==TheatreName).FirstOrDefaultAsync();
+            return await _ticketCollection.Find(t=>t.MovieName==MovieName && t.TheatreName==TheatreName).ToListAsync();
         }
 
         public async Task UpdateMovieDetails(Movie movie)
