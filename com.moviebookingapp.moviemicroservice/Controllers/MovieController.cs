@@ -84,13 +84,14 @@ namespace com.moviebookingapp.moviemicroservice.Controllers
             {
                 return NotFound("Ticket for above is not booked");
             }
+            var temp = movieDetails.NoOfSeatsAlloted;
             foreach(var bookedMovie in bookedMovieDetails)
             {
-                movieDetails.NoOfSeatsAlloted -= bookedMovie.NumberOfTickets;
+                temp -= bookedMovie.NumberOfTickets;
             }
-            
+            movieDetails.RemainingSeats=temp;
             await _imovieRepository.UpdateMovieDetails(movieDetails);
-            return Ok("Movie details updated successfully!!");
+            return Ok(new { message = "Movie details updated successfully!!" });
         }
 
         // DELETE MOVIE
@@ -104,7 +105,7 @@ namespace com.moviebookingapp.moviemicroservice.Controllers
                 return NotFound();
             }
             await _imovieRepository.DeleteMovieById(movieDetails.Id);
-            return Ok("Movie Deleted Successfully");
+            return Ok(new { message = "Movie Deleted Successfully" });
 
         }
     }

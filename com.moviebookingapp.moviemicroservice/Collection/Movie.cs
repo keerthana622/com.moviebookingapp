@@ -17,5 +17,7 @@ namespace com.moviebookingapp.moviemicroservice.Collection
 
         [BsonElement("numberOfSeatsAlloted")]
         public int NoOfSeatsAlloted { get; set; }
+        [BsonElement("remainingSeats")]
+        public int RemainingSeats { get; set; }
     }
 }

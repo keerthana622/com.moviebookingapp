@@ -53,7 +53,7 @@ namespace com.moviebookingapp.moviemicroservice.Repository
             var movieFilter = Builders<Movie>.Filter
                 .Eq(e => e.MovieName, movie.MovieName);
             var updateNoOfSeatsAlloted = Builders<Movie>.Update
-            .Set(u => u.NoOfSeatsAlloted, movie.NoOfSeatsAlloted);
+            .Set(u => u.RemainingSeats, movie.RemainingSeats);
             await _movieCollection.UpdateOneAsync(movieFilter, updateNoOfSeatsAlloted);
         }
 
