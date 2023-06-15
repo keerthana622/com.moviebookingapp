@@ -19,6 +19,6 @@ namespace com.moviebookingapp.moviemicroservice.Collection
         [BsonElement("numberOfTickets")]
         public int NumberOfTickets { get; set; }
         [BsonElement("seatNumber")]
-        public List<int> SeatNumber { get; set; }
+        public List<string> SeatNumber { get; set; }
     }
 }

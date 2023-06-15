@@ -69,6 +69,20 @@ namespace com.moviebookingapp.moviemicroservice.Controllers
 
         }
 
+        // Get BookedMovie Tickets
+        [Route("/api/v1.0/moviebooking/movies/getBookedMovieDetails")]
+        [HttpGet]
+        public async Task<IActionResult> Get([FromQuery] GetMovieRequest movie)
+        {
+            var bookedMovieDetails = await _imovieRepository.GetSeats(movie.MovieName, movie.TheatreName);
+            if (bookedMovieDetails == null)
+            {
+                return NotFound("Ticket for above is not booked");
+            }
+            return Ok(bookedMovieDetails);
+        }
+
+
         // Update Movie Tickets
         [Route("/api/v1.0/moviebooking/moviename/update/ticket")]
         [HttpPut, Authorize(Roles = "Admin")]
