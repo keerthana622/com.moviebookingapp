@@ -34,6 +34,19 @@ namespace com.moviebookingapp.moviemicroservice.Controllers
             return Ok(movies);
         }
 
+        //Get Ticket Details
+        [Route("/api/v1.0/moviebooking/movies/getBookedMovieDetails")]
+        [HttpGet]
+        public async Task<IActionResult> Get([FromQuery]GetMovieRequest getMovie)
+        {
+            var bookedMovieDetails = await _imovieRepository.GetBookedTicketDetails(getMovie.MovieName, getMovie.TheatreName);
+            if (bookedMovieDetails == null)
+            {
+                return NotFound("Ticket for above is not booked");
+            }
+            return Ok(bookedMovieDetails);
+        }
+
         // Search By Moviename
         [Route("/api/v1.0/moviebooking/movies/search/moviename")]
         [HttpGet, Authorize(Roles = "Admin,User")]
@@ -69,6 +82,7 @@ namespace com.moviebookingapp.moviemicroservice.Controllers
 
         }
 
+
         // Update Movie Tickets
         [Route("/api/v1.0/moviebooking/moviename/update/ticket")]
         [HttpPut, Authorize(Roles = "Admin")]
@@ -94,6 +108,8 @@ namespace com.moviebookingapp.moviemicroservice.Controllers
             return Ok(new { message = "Movie details updated successfully!!" });
         }
 
+        
+
         // DELETE MOVIE
         [Route("/api/v1.0/moviebooking/moviename/delete/id")]
         [HttpDelete, Authorize(Roles = "Admin")]
@@ -106,7 +122,6 @@ namespace com.moviebookingapp.moviemicroservice.Controllers
             }
             await _imovieRepository.DeleteMovieById(movieDetails.Id);
             return Ok(new { message = "Movie Deleted Successfully" });
-
         }
     }
 }
