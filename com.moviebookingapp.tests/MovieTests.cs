@@ -125,7 +125,7 @@ namespace com.moviebookingapp.tests
                 MovieName = "Paathan",
                 TheatreName = "Inox",
                 NumberOfTickets = 1,
-                SeatNumber = new List<string> { "G1" },
+                SeatNumber = new List<string> { "G1"},
             };
             MovieMock.Setup(context => context.BookTicket(bookMovieTicket));
 

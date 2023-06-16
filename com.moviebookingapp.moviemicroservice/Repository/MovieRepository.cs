@@ -1,6 +1,7 @@
 ﻿using com.moviebookingapp.moviemicroservice.Collection;
 using com.moviebookingapp.moviemicroservice.Models;
 using MongoDB.Driver;
+using System.Linq;
 
 namespace com.moviebookingapp.moviemicroservice.Repository
 {
@@ -46,6 +47,13 @@ namespace com.moviebookingapp.moviemicroservice.Repository
         public async Task<List<Ticket>> GetBookedTicketDetails(string MovieName, string TheatreName)
         {
             return await _ticketCollection.Find(t=>t.MovieName==MovieName && t.TheatreName==TheatreName).ToListAsync();
+           
+        }
+
+        public async Task<List<string>> GetSeats(string MovieName, string TheatreName)
+        {
+            var ticketsData = await _ticketCollection.Find(t => t.MovieName == MovieName && t.TheatreName == TheatreName).ToListAsync();
+            return ticketsData.SelectMany(x => x.SeatNumber).ToList();
         }
 
         public async Task UpdateMovieDetails(Movie movie)
