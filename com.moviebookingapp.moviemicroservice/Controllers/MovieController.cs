@@ -34,18 +34,6 @@ namespace com.moviebookingapp.moviemicroservice.Controllers
             return Ok(movies);
         }
 
-        //Get Ticket Details
-        [Route("/api/v1.0/moviebooking/movies/getBookedMovieDetails")]
-        [HttpGet]
-        public async Task<IActionResult> Get([FromQuery]GetMovieRequest getMovie)
-        {
-            var bookedMovieDetails = await _imovieRepository.GetBookedTicketDetails(getMovie.MovieName, getMovie.TheatreName);
-            if (bookedMovieDetails == null)
-            {
-                return NotFound("Ticket for above is not booked");
-            }
-            return Ok(bookedMovieDetails);
-        }
 
         // Search By Moviename
         [Route("/api/v1.0/moviebooking/movies/search/moviename")]

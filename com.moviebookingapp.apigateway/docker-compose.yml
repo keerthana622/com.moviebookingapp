@@ -1,0 +1,46 @@
+﻿#version: "3.6"
+#services:
+#    userapi:
+#        container_name: user
+#        ports:
+#            - 8000:80
+#            - 8001:443
+#        environment:
+#            - "ASPNETCORE_URLS=https://+;http://+"
+#            - Kestrel__Certificates__Default__Path=/app/Infrastructure/Certificate/cert-aspnetcore.pfx
+#            - Kestrel__Certificates__Default__Password=SecretPassword        
+#        image: Keerthana/userapi   
+#        restart: on-failure       
+        
+#    movieapi:
+#        container_name: movie
+#        ports:
+#            - 9000:80
+#            - 9001:443
+#        environment:
+#            - "ASPNETCORE_URLS=https://+;http://+"
+#            - Kestrel__Certificates__Default__Path=/app/Infrastructure/Certificate/cert-aspnetcore.pfx
+#            - Kestrel__Certificates__Default__Password=SecretPassword      
+#        image: Keerthana/movie       
+#        restart: on-failure
+
+version: '3.5'
+services:
+  UserService:
+   image: ${DOCKER_REGISTRY-}usermicroservice:v1
+   build:
+    context: C:\Users\Administrator\source\repos\com.moviebookingapp\com.moviebookingapp.usermicroservice
+    dockerfile: Dockerfile
+   environment:
+    - CONNECTIONSTRINGS__DEFAULTCONNECTION=mongodb+srv://mailtokeerthu62:Keerthu006%40@cluster0.9kirv4b.mongodb.net/?retryWrites=true&w=majority;DatabaseName=MovieBookingDb;
+   ports:
+    - "7245:80"
+  MovieService:
+   image: ${DOCKER_REGISTRY-}moviemicroservice:v1
+   build:
+    context: C:\Users\Administrator\source\repos\com.moviebookingapp\com.moviebookingapp.moviemicroservice
+    dockerfile: Dockerfile
+   environment:
+    - CONNECTIONSTRINGS__DEFAULTCONNECTION=mongodb+srv://mailtokeerthu62:Keerthu006%40@cluster0.9kirv4b.mongodb.net/?retryWrites=true&w=majority;DatabaseName=MovieBookingDb;
+   ports:
+    - "7044:80"

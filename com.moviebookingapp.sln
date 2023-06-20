@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "com.moviebookingapp.usermic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "com.moviebookingapp.moviemicroservice", "com.moviebookingapp.moviemicroservice\com.moviebookingapp.moviemicroservice.csproj", "{F24B3132-E69D-407C-8DE6-9AA3629C7AA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.moviebookingapp.apigateway", "com.moviebookingapp.apigateway\com.moviebookingapp.apigateway.csproj", "{E6658E9B-A142-4C11-BA6A-0273BF050547}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "com.moviebookingapp.apigateway", "com.moviebookingapp.apigateway\com.moviebookingapp.apigateway.csproj", "{E6658E9B-A142-4C11-BA6A-0273BF050547}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.moviebookingapp.tests", "com.moviebookingapp.tests\com.moviebookingapp.tests.csproj", "{1A331685-DACB-4C0E-9F9A-CEFA0771280B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "com.moviebookingapp.tests", "com.moviebookingapp.tests\com.moviebookingapp.tests.csproj", "{1A331685-DACB-4C0E-9F9A-CEFA0771280B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
